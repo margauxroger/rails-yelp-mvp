@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # get 'reviews/new', to: 'reviews#new'
   # post 'reviews', to: 'reviews#create'
   resources :restaurants do
-    resources :reviews, only: [ :new, :create ]
+    resources :reviews, only: [:new, :create]
   end
 end

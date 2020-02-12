@@ -1,2 +1,21 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="container mt-5">
+  <div class="title mb-4 border-bottom">
+    <h1><strong><%= @restaurant.name %></strong></h1>
+  </div>
+  <div class="info pb-4 mb-3 border-bottom">
+    <h3>Where? <span class="badge badge-warning"><%= @restaurant.address %></span></h3>
+    <h3>Contact? <span class="badge badge-secondary"><%= @restaurant.phone %></span></h3>
+  </div>
+  <div class="reviews">
+    <% @restaurant.reviews.each do |review| %>
+      <div class="card mb-3">
+        <div class="card-header"><strong><%= review.content %></strong></div>
+        <div class="card-text text-right m-2"><%= review.rating %> <i class="fas fa-star"></i></div>
+      </div>
+    <% end %>
+    <%= link_to('Add a review', new_restaurant_review_path(@restaurant), {class: "btn btn-outline-success"}) %>
+  </div>
+  <div class="footer mt-4 border-top pt-3">
+    <%= link_to('Back to all restaurants', restaurants_path, {class: "btn btn-success"}) %>
+  </div>
+</div>
